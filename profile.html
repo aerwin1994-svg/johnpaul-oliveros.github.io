@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>John Paul Oliveros · Portfolio</title>
+  <!-- Google Fonts + modern reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #0a0c10;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 28px 0 20px;
+      border-bottom: 1px solid #e4e7eb;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e4a76, #3b82b6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e50;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e4a76;
+    }
+
+    /* hero section: profile + image */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      margin-bottom: 64px;
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem 2rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04), 0 4px 8px rgba(0,0,0,0.02);
+    }
+
+    .profile-info {
+      flex: 1.2;
+    }
+
+    .greeting {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #1e4a76;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .profile-info h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #0a2b3e;
+    }
+
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #eef2ff;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 0.75rem 0 1rem;
+      color: #1e4a76;
+    }
+
+    .title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      border-left: 4px solid #1e4a76;
+      padding-left: 1rem;
+    }
+
+    .bio {
+      color: #2d3e50;
+      margin: 1rem 0 1.5rem;
+      font-size: 1.05rem;
+      max-width: 90%;
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-icons a {
+      color: #4b5563;
+      font-size: 1.5rem;
+      transition: all 0.2s;
+    }
+
+    .contact-icons a:hover {
+      color: #1e4a76;
+      transform: translateY(-3px);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-primary {
+      background: #1e4a76;
+      color: white;
+      box-shadow: 0 2px 6px rgba(30,74,118,0.2);
+    }
+
+    .btn-primary:hover {
+      background: #0f3b5f;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1.5px solid #cbd5e6;
+      color: #1e2a3a;
+    }
+
+    .btn-outline:hover {
+      border-color: #1e4a76;
+      color: #1e4a76;
+      background: #f0f7ff;
+    }
+
+    /* image frame */
+    .image-card {
+      flex: 0.8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .avatar-frame {
+      background: #ffffff;
+      padding: 8px;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+      border: 1px solid #eef2ff;
+    }
+
+    .avatar-frame img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 1.5rem;
+      display: block;
+      transition: transform 0.25s ease;
+      background: #eef2ff;
+    }
+
+    .avatar-frame img:hover {
+      transform: scale(1.02);
+    }
+
+    .img-note {
+      font-size: 0.7rem;
+      margin-top: 12px;
+      background: #f1f5f9;
+      padding: 4px 12px;
+      border-radius: 30px;
+      color: #3b5c7a;
+    }
+
+    /* sections */
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin: 2.8rem 0 1.5rem 0;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 70%;
+      height: 3px;
+      background: linear-gradient(90deg, #1e4a76, #9bb8da);
+      border-radius: 3px;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .skill-badge {
+      background: white;
+      padding: 0.5rem 1.3rem;
+      border-radius: 40px;
+      font-weight: 500;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s;
+    }
+
+    .skill-badge i {
+      margin-right: 8px;
+      color: #1e4a76;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      transition: all 0.2s;
+      border: 1px solid #eef2ff;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: #cbdbe0;
+      box-shadow: 0 18px 25px -12px rgba(0,0,0,0.1);
+    }
+
+    .project-icon {
+      font-size: 2rem;
+      color: #1e4a76;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: #475569;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-tags span {
+      background: #eef2ff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      color: #1e3a5f;
+      margin-right: 0.5rem;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-me-text {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      margin: 1rem 0 0.5rem;
+      border: 1px solid #eef2ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      border-top: 1px solid #e2e8f0;
+      color: #5b6e8c;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 1.5rem;
+      }
+      .bio {
+        max-width: 100%;
+      }
+      .title {
+        text-align: center;
+        border-left: none;
+        padding-left: 0;
+      }
+      .btn-group, .contact-icons {
+        justify-content: center;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .section-title:after {
+        width: 100%;
+      }
+      .location-badge {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- navigation -->
+  <div class="navbar">
+    <div class="logo">🇵🇭 J.P. Oliveros</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero section with profile image (CCC_4460.JPG) and personal info -->
+  <section id="home">
+    <div class="hero">
+      <div class="profile-info">
+        <div class="greeting"><i class="fas fa-map-marker-alt"></i> HELLO, I'M</div>
+        <h1>JOHN PAUL M. OLIVEROS</h1>
+        <div class="location-badge">
+          <i class="fas fa-location-dot"></i> Silang, Cavite, Philippines
+          <i class="fas fa-birthday-cake" style="margin-left: 8px;"></i> March 29, 2004
+        </div>
+        <div class="title">Recent Graduate · Tech Enthusiast · Creator</div>
+        <div class="bio">
+          Driven and detail-oriented college graduate from <strong>City College of Tagaytay</strong>. 
+          Passionate about building digital solutions, crafting intuitive interfaces, and solving real-world problems. 
+          I bring fresh perspectives and energy to every project — eager to contribute, learn, and grow.
+        </div>
+        <div class="contact-icons">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/share/1KaPPM1J3v/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/paw_paw29?igsh=cDVtdGtkbXIzeW94" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <!-- Telegram -->
+          <a href="https://t.me/paul_200429" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <!-- Email (opens mail client) -->
+          <a href="mailto:paul200429@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <!-- Mobile (tel link) -->
+          <a href="tel:+639456110755" aria-label="Mobile Number"><i class="fas fa-phone-alt"></i></a>
+        </div>
+        <div class="btn-group">
+          <a href="tel:+639456110755" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Call Me</a>
+          <a href="#projects" class="btn btn-outline"><i class="fas fa-chevron-right"></i> See Work</a>
+        </div>
+      </div>
+      <div class="image-card">
+        <div class="avatar-frame">
+          <!-- using the exact image filename: CCC_4460.JPG (case-sensitive) 
+               Make sure the file is in the same directory as this HTML file -->
+          <img id="profileImage" src="CCC_4460.JPG" alt="John Paul M. Oliveros portrait">
+        </div>
+        <div class="img-note">
+          <i class="fas fa-camera"></i> John Paul · Silang, Cavite
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About section / background story -->
+  <section id="about">
+    <h2 class="section-title"><i class="fas fa-user-graduate"></i> My Journey</h2>
+    <div class="about-me-text">
+      <p style="font-size: 1.05rem; margin-bottom: 1rem;">
+        <i class="fas fa-quote-left" style="color: #1e4a76; margin-right: 6px;"></i> 
+        Born on March 29, 2004, and raised in the scenic province of Cavite, I've always been fascinated by how technology shapes everyday life. 
+        I graduated from <strong>City College of Tagaytay</strong> — an experience that honed my critical thinking, collaboration, and passion for innovation.
+      </p>
+      <p style="margin-bottom: 1rem;">
+        During college, I immersed myself in web development and design thinking, creating projects that blend functionality with clean aesthetics. 
+        Living in Silang, surrounded by nature and a growing tech community, inspires me to build digital experiences that are both human and future-ready. 
+        I'm now ready to contribute my skills as a junior developer, IT specialist, or creative problem-solver.
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+        <span style="background:#eef2ff; padding:0.3rem 1rem; border-radius:30px;"><i class="fas fa-graduation-cap"></i> B.S. Computer Science (2025)</span>
+        <span style="background:#eef2ff; padding:0.3rem 1rem; border-radius:30px;"><i class="fas fa-medal"></i> Dean’s Lister</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills section -->
+  <section id="skills">
+    <h2 class="section-title"><i class="fas fa-code"></i> Technical Arsenal</h2>
+    <div class="skills-grid">
+      <span class="skill-badge"><i class="fab fa-html5"></i> HTML5/CSS3</span>
+      <span class="skill-badge"><i class="fab fa-js"></i> JavaScript (ES6)</span>
+      <span class="skill-badge"><i class="fab fa-react"></i> React Basics</span>
+      <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
+      <span class="skill-badge"><i class="fas fa-database"></i> MySQL / Firebase</span>
+      <span class="skill-badge"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+      <span class="skill-badge"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+      <span class="skill-badge"><i class="fas fa-pencil-ruler"></i> UI / UX Principles</span>
+    </div>
+  </section>
+
+  <!-- Projects section (personalized projects) -->
+  <section id="projects">
+    <h2 class="section-title"><i class="fas fa-laptop-code"></i> Featured Work</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-map-marked-alt"></i></div>
+        <h3>Tagaytay Guide Hub</h3>
+        <p>Local tourism web app featuring attractions, restaurants, and commute routes. Built with HTML/CSS/JS and integrated Google Maps API.</p>
+        <div class="project-tags"><span>JavaScript</span><span>API</span><span>CSS Grid</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Silang Harvest</h3>
+        <p>Eco-friendly farm-to-table marketplace concept with product catalog and order form. Showcased during college capstone.</p>
+        <div class="project-tags"><span>Bootstrap</span><span>PHP</span><span>MySQL</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-tasks"></i></div>
+        <h3>StudyFlow Tracker</h3>
+        <p>Productivity tool for students – task organizer with Pomodoro timer and progress dashboard. React + local storage.</p>
+        <div class="project-tags"><span>React</span><span>CSS Modules</span><span>LocalStorage</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact + message section with complete details -->
+  <section id="contact" style="margin: 2rem 0 1rem;">
+    <div style="background: linear-gradient(120deg, #ffffff, #f5f9ff); border-radius: 2rem; padding: 2rem; text-align: center; border: 1px solid #dee4ed;">
+      <i class="fas fa-address-card" style="font-size: 2rem; color: #1e4a76;"></i>
+      <h3 style="margin: 0.8rem 0 0.5rem;">Let's Connect & Create</h3>
+      <p style="max-width: 620px; margin: 0 auto 1.4rem; color: #2d4a6e;">
+        Based in Silang, Cavite — open for freelance, full-time opportunities, or collaboration. 
+        Reach me anytime via call, message, or social media.
+      </p>
+      <div style="background: #eef2ff; border-radius: 1.5rem; padding: 1rem; margin: 1rem auto; max-width: 450px;">
+        <p style="margin: 0.3rem 0;"><i class="fas fa-phone-alt"></i> <strong>Mobile:</strong> <a href="tel:+639456110755" style="color:#1e4a76; text-decoration:none;">0945 611 0755</a></p>
+        <p style="margin: 0.3rem 0;"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:paul200429@gmail.com" style="color:#1e4a76;">paul200429@gmail.com</a></p>
+        <p style="margin: 0.3rem 0;"><i class="fab fa-telegram"></i> <strong>Telegram:</strong> <a href="https://t.me/paul_200429" target="_blank" style="color:#1e4a76;">@paul_200429</a></p>
+        <p style="margin: 0.3rem 0;"><i class="fab fa-facebook"></i> <strong>Facebook:</strong> <a href="https://www.facebook.com/share/1KaPPM1J3v/" target="_blank" style="color:#1e4a76;">John Paul Oliveros</a></p>
+        <p style="margin: 0.3rem 0;"><i class="fab fa-instagram"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/paw_paw29" target="_blank" style="color:#1e4a76;">@paw_paw29</a></p>
+      </div>
+      <a href="mailto:paul200429@gmail.com" class="btn btn-primary" style="background: #1e4a76; margin-top: 0.5rem;"><i class="fas fa-paper-plane"></i> Send me an Email</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 John Paul M. Oliveros — crafted with <i class="fas fa-heart" style="color: #b91c1c;"></i> in Silang, Cavite</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">📍 City College of Tagaytay Graduate • Born March 29, 2004 • Always curious, always building.</p>
+  </footer>
+</div>
+
+<script>
+  (function() {
+    // Profile image handling: ensure the image "CCC_4460.JPG" is loaded
+    const imgElement = document.getElementById('profileImage');
+    if (imgElement) {
+      // if image fails to load (file missing or wrong path)
+      imgElement.onerror = function() {
+        console.warn("⚠️ Image 'CCC_4460.JPG' not found. Make sure the file is in the same folder as your HTML.");
+        const noteDiv = document.querySelector('.img-note');
+        if (noteDiv) {
+          noteDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Image not found — place "CCC_4460.JPG" in same folder';
+          noteDiv.style.background = "#ffe6e6";
+          noteDiv.style.color = "#a1220a";
+        }
+        // fallback: placeholder with initials
+        this.src = "https://placehold.co/500x500/eef2ff/2c5f8a?text=John+Paul";
+      };
+      
+      // double-click to replace image quickly if needed (convenience)
+      imgElement.addEventListener('dblclick', function(e) {
+        let newUrl = prompt("📸 Update profile photo URL (or relative path):", imgElement.src);
+        if (newUrl && newUrl.trim() !== "") {
+          imgElement.src = newUrl.trim();
+          const noteDiv = document.querySelector('.img-note');
+          if (noteDiv) {
+            noteDiv.innerHTML = '<i class="fas fa-check-circle"></i> Photo updated! (double-click to change)';
+            noteDiv.style.background = "#e0f2fe";
+            setTimeout(() => {
+              if(noteDiv) noteDiv.innerHTML = '<i class="fas fa-camera"></i> John Paul · Silang, Cavite';
+              noteDiv.style.background = "#f1f5f9";
+            }, 2800);
+          }
+        }
+      });
+      imgElement.style.cursor = 'pointer';
+      imgElement.title = 'Double-click to change profile photo';
+    }
+
+    // smooth scroll for anchor links
+    const allLinks = document.querySelectorAll('.nav-links a, .btn-group a[href^="#"], .btn-outline[href^="#"]');
+    allLinks.forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const hash = this.getAttribute('href');
+        if (hash && hash.startsWith('#')) {
+          const targetId = hash.substring(1);
+          const targetElem = document.getElementById(targetId);
+          if (targetElem) {
+            e.preventDefault();
+            targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+    
+    // dynamic year update in footer
+    const footerYear = document.querySelector('footer p:first-child');
+    if (footerYear) {
+      const currentYear = new Date().getFullYear();
+      footerYear.innerHTML = footerYear.innerHTML.replace('2025', currentYear);
+    }
+    
+    // console welcome with personal details
+    console.log("✨ John Paul Oliveros Portfolio — Ready!");
+    console.log("📸 Your image file should be: CCC_4460.JPG (same folder)");
+    console.log("🎂 Born March 29, 2004 | 🎓 City College of Tagaytay Graduate");
+    console.log("📱 Contact via FB, IG, Telegram, or call 09456110755");
+  })();
+</script>
+
+<!-- =========== VS CODE INSTRUCTIONS =========== 
+1. Save this file as "index.html" in your VS Code workspace folder.
+2. Place your image named "CCC_4460.JPG" inside the SAME folder as this HTML file.
+   (If the image is in another folder, update the src attribute: src="images/CCC_4460.JPG")
+3. Open with Live Server (right-click → "Open with Live Server") to preview.
+4. The portfolio now includes your Facebook, Instagram, Telegram, email, and mobile number.
+5. Double-click the profile image to change or fix path if needed.
+6. You can further edit colors, skills, projects directly in the HTML/CSS.
+-->
+</body>
+</html>
